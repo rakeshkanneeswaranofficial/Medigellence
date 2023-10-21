@@ -5,12 +5,15 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 import google.generativeai as palm
 from langchain.embeddings import GooglePalmEmbeddings
 from langchain.llms import GooglePalm
+from langchain.llms import OpenAI
 from langchain.vectorstores import FAISS
 from langchain.chains import ConversationalRetrievalChain
 from langchain.memory import ConversationBufferMemory
 import os
 
-os.environ['APIKREY'] =  'YOUR API'
+os.environ['OPENAI_API_KEY'] = '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'
+
+os.environ['GOOGLE_API_KEY'] =  'AIzaSyAl2uxgVQkmGu5fbbeNTG8LlfFYh_qpRmg'
 
 
 def get_pdf_text(pdf_docs):
@@ -32,7 +35,7 @@ def get_vector_store(text_chunks):
     return vector_store
 
 def get_conversational_chain(vector_store):
-    llm=GooglePalm()
+    llm= OpenAI()
     memory = ConversationBufferMemory(memory_key = "chat_history", return_messages=True)
     conversation_chain = ConversationalRetrievalChain.from_llm(llm=llm, retriever=vector_store.as_retriever(), memory=memory)
     return conversation_chain
