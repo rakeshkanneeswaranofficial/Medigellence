@@ -2,7 +2,7 @@ import streamlit as st
 from PyPDF2 import PdfReader
 import numpy as np
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-import google.generativeai as palm
+
 from langchain.embeddings import GooglePalmEmbeddings
 from langchain.llms import GooglePalm
 from langchain.llms import OpenAI
@@ -11,9 +11,9 @@ from langchain.chains import ConversationalRetrievalChain
 from langchain.memory import ConversationBufferMemory
 import os
 
-os.environ['OPENAI_API_KEY'] = ''
 
-os.environ['GOOGLE_API_KEY'] =  ''
+
+
 
 
 def get_pdf_text(pdf_docs):
