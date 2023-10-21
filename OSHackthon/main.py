@@ -11,9 +11,9 @@ from langchain.chains import ConversationalRetrievalChain
 from langchain.memory import ConversationBufferMemory
 import os
 
-os.environ['OPENAI_API_KEY'] = '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'
+os.environ['OPENAI_API_KEY'] = ''
 
-os.environ['GOOGLE_API_KEY'] =  'AIzaSyAl2uxgVQkmGu5fbbeNTG8LlfFYh_qpRmg'
+os.environ['GOOGLE_API_KEY'] =  ''
 
 
 def get_pdf_text(pdf_docs):
